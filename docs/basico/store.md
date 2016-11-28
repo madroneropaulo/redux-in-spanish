@@ -1,16 +1,16 @@
 # Store
 
-In the previous sections, we defined the [actions](Actions.md) that represent the facts about “what happened” and the [reducers](Reducers.md) that update the state according to those actions.
+En las secciones anteriores definimos las [acciones](acciones.md), que representan los "cambios que ocurrieron", y los [reducers](reducers.md), que actualizan el estado de acuerdo a dichas acciones.
 
-The **Store** is the object that brings them together. The store has the following responsibilities:
+El **Store** es el objeto que une las acciones y los reducers. Las responsabilidades del **Store** son:
 
-* Holds application state;
-* Allows access to state via [`getState()`](../api/Store.md#getState);
-* Allows state to be updated via [`dispatch(action)`](../api/Store.md#dispatch);
-* Registers listeners via [`subscribe(listener)`](../api/Store.md#subscribe);
-* Handles unregistering of listeners via the function returned by [`subscribe(listener)`](../api/Store.md#subscribe).
+* Contener el estado de la aplicación;
+* Permite el acceso al estado por medio de [`getState()`](../api/Store.md#getState);
+* Permite la actualización del estado por medio de [`dispatch(action)`](../api/Store.md#dispatch);
+* Registra `listeners` por medio de [`subscribe(listener)`](../api/Store.md#subscribe);
+* Administra la cancelación de registros de `listeners` por medio de la función que regresa [`subscribe(listener)`](../api/Store.md#subscribe).
 
-It's important to note that you'll only have a single store in a Redux application. When you want to split your data handling logic, you'll use [reducer composition](Reducers.md#splitting-reducers) instead of many stores.
+Es importante tener en cuenta que una aplicación Redux tendrá un único **Store**, que contendrá el estado de **toda** la aplicación. Cuando se necesite dividir la lógica que maneja los datos, se debe usar [composición de reducers](Reducers.md#splitting-reducers) en vez de múltiples **Stores**.
 
 It's easy to create a store if you have a reducer. In the [previous section](Reducers.md), we used [`combineReducers()`](../api/combineReducers.md) to combine several reducers into one. We will now import it, and pass it to [`createStore()`](../api/createStore.md).
 
